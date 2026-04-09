@@ -1,0 +1,21 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "stepfunai": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "StepFunAI",
+      "options": {
+        "baseURL": "https://api.stepfun.ai/step_plan/v1",
+        "apiKey": "",
+        "headers": {
+          "Authorization": "Bearer custom-token"
+        }
+      },
+      "models": {
+        "step-3.5-flash": {
+          "name": "StepFun 3.5 Flash"
+        }
+      }
+    }
+  }
+}
