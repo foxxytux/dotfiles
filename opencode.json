@@ -6,10 +6,7 @@
       "name": "StepFunAI",
       "options": {
         "baseURL": "https://api.stepfun.ai/step_plan/v1",
-        "apiKey": "",
-        "headers": {
-          "Authorization": "Bearer custom-token"
-        }
+        "apiKey": ""
       },
       "models": {
         "step-3.5-flash": {
