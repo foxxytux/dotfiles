@@ -1,0 +1,81 @@
+set $mod Mod4
+
+font pango:Quicksand 10
+
+# --- AUTOSTART ---
+exec --no-startup-id dunst
+exec --no-startup-id copyq
+exec --no-startup-id feh --bg-fill ~/Pictures/wallpaper.png
+exec --no-startup-id picom
+
+# --- INPUT ---
+exec --no-startup-id setxkbmap tr
+
+# --- VISUALS ---
+gaps inner 5
+gaps outer 10
+default_border pixel 2
+default_floating_border pixel 2
+
+client.focused          #33ccff #33ccff #ffffff #33ccff #33ccff
+client.unfocused        #595959 #595959 #ffffff #595959 #595959
+client.focused_inactive #595959 #595959 #ffffff #595959 #595959
+client.urgent           #ff0000 #ff0000 #ffffff #ff0000 #ff0000
+
+# --- APPS ---
+bindsym $mod+Return exec kitty
+bindsym $mod+m exec rofi -show drun
+bindsym $mod+v exec "copyq show"
+
+# --- WINDOW MANAGEMENT ---
+bindsym $mod+q kill
+bindsym $mod+Shift+q exit
+bindsym $mod+f floating toggle
+bindsym $mod+j layout tabbed
+
+# --- NAVIGATION ---
+bindsym $mod+Left focus left
+bindsym $mod+Right focus right
+bindsym $mod+Up focus up
+bindsym $mod+Down focus down
+
+# --- WORKSPACES ---
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+
+# --- SCREENSHOTS ---
+bindsym Print exec flameshot full -c
+bindsym Shift+Print exec flameshot gui
+
+# --- MEDIA ---
+bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_SINK@ 5%+
+bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_SINK@ 5%-
+bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_SINK@ toggle
+bindsym XF86MonBrightnessUp exec brightnessctl set +10%
+bindsym XF86MonBrightnessDown exec brightnessctl set 10%-
+
+# --- BAR ---
+bar {
+    font pango:Quicksand 10
+    status_command i3status
+}
+
+workspace_layout default
